@@ -24,7 +24,7 @@ public class HampterRenderer extends GeoEntityRenderer<HampterEntity> {
     public RenderLayer getRenderType(HampterEntity animatable, float partialTicks, MatrixStack stack,
                                      VertexConsumerProvider renderTypeBuffer, VertexConsumer vertexBuilder,
                                      int packedLightIn, Identifier textureLocation) {
-        stack.scale(0.8f, 0.8f, 0.8f);
+        stack.scale(1.4f, 1.4f, 1.4f);
 
         return super.getRenderType(animatable, partialTicks, stack, renderTypeBuffer, vertexBuilder, packedLightIn, textureLocation);
     }
