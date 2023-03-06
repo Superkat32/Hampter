@@ -72,7 +72,7 @@ public class HampterEntity extends HostileEntity implements IAnimatable {
 
     @Override
     protected SoundEvent getAmbientSound() {
-        return SoundEvents.ENTITY_GOAT_AMBIENT;
+        return SoundEvents.ENTITY_AXOLOTL_IDLE_AIR;
     }
 
     @Override
