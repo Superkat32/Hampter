@@ -11,10 +11,13 @@ import net.minecraft.entity.passive.IronGolemEntity;
 import net.minecraft.entity.passive.MerchantEntity;
 import net.minecraft.entity.passive.SnowGolemEntity;
 import net.minecraft.entity.passive.WanderingTraderEntity;
+import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.particle.ParticleTypes;
 import net.minecraft.sound.SoundEvent;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
+import net.superkat.hampter.HampterMain;
 import software.bernie.geckolib3.core.AnimationState;
 import software.bernie.geckolib3.core.IAnimatable;
 import software.bernie.geckolib3.core.PlayState;
@@ -26,6 +29,8 @@ import software.bernie.geckolib3.core.manager.AnimationFactory;
 
 public class HampterEntity extends HostileEntity implements IAnimatable {
     private AnimationFactory factory = new AnimationFactory(this);
+
+    int shinyChance = this.random.nextBetween(1, 4000);
 
     public HampterEntity(EntityType<? extends HostileEntity> entityType, World world) {
         super(entityType, world);
@@ -47,6 +52,7 @@ public class HampterEntity extends HostileEntity implements IAnimatable {
         this.goalSelector.add(2, new MeleeAttackGoal(this, 1.2D, false));
         this.goalSelector.add(3, new RevengeGoal(this));
         this.goalSelector.add(3, new WanderAroundFarGoal(this, 0.75f, 1));
+        this.goalSelector.add(3, new LookAtEntityGoal(this, PlayerEntity.class, 6.0F));
         this.goalSelector.add(4, new LookAroundGoal(this));
 
         //Monsters
@@ -67,6 +73,19 @@ public class HampterEntity extends HostileEntity implements IAnimatable {
 
         //Other
         this.targetSelector.add(4, new ActiveTargetGoal<>(this, SnowGolemEntity.class, true));
+    }
+
+    public void tickMovement() {
+        super.tickMovement();
+        int airplaneChance = this.random.nextBetween(1, 1000);
+        if(airplaneChance == 1 || shinyChance == 1) {
+            this.world.addParticle(ParticleTypes.END_ROD, this.getParticleX(0.6), this.getRandomBodyY(), this.getParticleZ(0.6), 0.0, 0.0, 0.0);
+            HampterMain.LOGGER.info("AIRPLANE SPAWNED!!!!!!");
+        }
+        if(shinyChance == 1) {
+            this.world.addParticle(ParticleTypes.TOTEM_OF_UNDYING, this.getParticleX(0.6), this.getRandomBodyY(), this.getParticleZ(0.6), 0.0, 0.0, 0.0);
+        }
+
     }
 
     private <E extends IAnimatable> PlayState predicate(AnimationEvent<E> event) {
