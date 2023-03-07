@@ -18,6 +18,9 @@ repositories {
 	// See https://docs.gradle.org/current/userguide/declaring_repositories.html
 	// for more information about repositories.
 	maven { url 'https://dl.cloudsmith.io/public/geckolib3/geckolib/maven/' }
+	maven { url = "https://maven.terraformersmc.com/" }
+	maven { url = "https://maven.shedaniel.me/" }
+	maven { url = "https://api.modrinth.com/maven"}
 }
 
 dependencies {
@@ -34,7 +37,12 @@ dependencies {
 
 	// modImplementation "net.fabricmc.fabric-api:fabric-api-deprecated:${project.fabric_version}"
 
-	modImplementation 'software.bernie.geckolib:geckolib-fabric-1.19:3.1.18'
+//	modImplementation 'software.bernie.geckolib:geckolib-fabric-1.19:3.1.18'
+	modCompileOnly 'software.bernie.geckolib:geckolib-fabric-1.19:3.1.18'
+	modRuntimeOnly 'software.bernie.geckolib:geckolib-fabric-1.19:3.1.18'
+
+	modCompileOnly "com.terraformersmc:modmenu:${modmenu_version}"
+	modRuntimeOnly "com.terraformersmc:modmenu:${modmenu_version}"
 }
 
 processResources {
