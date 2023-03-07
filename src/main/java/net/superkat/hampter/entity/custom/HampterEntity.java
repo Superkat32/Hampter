@@ -69,6 +69,8 @@ public class HampterEntity extends PathAwareEntity implements IAnimatable {
         this.targetSelector.add(2, new ActiveTargetGoal<>(this, VindicatorEntity.class, true));
         this.targetSelector.add(3, new ActiveTargetGoal<>(this, EvokerEntity.class, true));
         this.targetSelector.add(1, new ActiveTargetGoal<>(this, VexEntity.class, true));
+        this.targetSelector.add(4, new ActiveTargetGoal<>(this, WitchEntity.class, true));
+        this.targetSelector.add(4, new ActiveTargetGoal<>(this, RavagerEntity.class, true));
         this.targetSelector.add(3, new ActiveTargetGoal<>(this, IllusionerEntity.class, true));
 
         //Other
