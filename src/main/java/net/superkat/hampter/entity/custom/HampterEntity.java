@@ -79,7 +79,7 @@ public class HampterEntity extends PathAwareEntity implements IAnimatable {
         super.tickMovement();
         int airplaneChance = this.random.nextBetween(1, 1000);
         if(airplaneChance == 1 || shinyChance == 1) {
-            this.world.addParticle(ParticleTypes.END_ROD, this.getParticleX(0.6), this.getRandomBodyY(), this.getParticleZ(0.6), 0.0, 0.0, 0.0);
+            this.world.addParticle(HampterMain.PAPER_AIRPLANE, this.getParticleX(0.6), this.getRandomBodyY(), this.getParticleZ(0.6), 0.0, 0.0, 0.0);
             HampterMain.LOGGER.info("AIRPLANE SPAWNED!!!!!!");
         }
         if(shinyChance == 1) {
