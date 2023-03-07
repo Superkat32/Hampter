@@ -2,6 +2,10 @@ package net.superkat.hampter;
 
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.object.builder.v1.entity.FabricDefaultAttributeRegistry;
+import net.fabricmc.fabric.api.particle.v1.FabricParticleTypes;
+import net.minecraft.particle.DefaultParticleType;
+import net.minecraft.util.Identifier;
+import net.minecraft.util.registry.Registry;
 import net.superkat.hampter.entity.ModEntities;
 import net.superkat.hampter.entity.custom.HampterEntity;
 import org.slf4j.Logger;
@@ -11,6 +15,7 @@ import software.bernie.geckolib3.GeckoLib;
 public class HampterMain implements ModInitializer {
 	public static final String MOD_ID = "hampter";
 	public static final Logger LOGGER = LoggerFactory.getLogger(MOD_ID);
+	public static final DefaultParticleType PAPER_AIRPLANE = FabricParticleTypes.simple();
 
 	@Override
 	public void onInitialize() {
@@ -19,6 +24,9 @@ public class HampterMain implements ModInitializer {
 		GeckoLib.initialize();
 
 		FabricDefaultAttributeRegistry.register(ModEntities.HAMPTER, HampterEntity.setAttributes());
+
+		//Particle
+		Registry.register(Registry.PARTICLE_TYPE, new Identifier(MOD_ID, "paper_airplane"), PAPER_AIRPLANE);
 
 		LOGGER.info("Hello, Fabric world!");
 	}
