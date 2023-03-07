@@ -13,6 +13,6 @@ public class ModEntities {
     public static final EntityType<HampterEntity> HAMPTER = Registry.register(
             Registry.ENTITY_TYPE,
             new Identifier(HampterMain.MOD_ID, "hampter"),
-            FabricEntityTypeBuilder.create(SpawnGroup.MONSTER, HampterEntity::new).dimensions(EntityDimensions.fixed(0.75f, 0.75f)).build()
+            FabricEntityTypeBuilder.create(SpawnGroup.CREATURE, HampterEntity::new).dimensions(EntityDimensions.fixed(0.75f, 0.75f)).build()
     );
 }

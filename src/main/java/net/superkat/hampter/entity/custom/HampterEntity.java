@@ -27,12 +27,12 @@ import software.bernie.geckolib3.core.event.predicate.AnimationEvent;
 import software.bernie.geckolib3.core.manager.AnimationData;
 import software.bernie.geckolib3.core.manager.AnimationFactory;
 
-public class HampterEntity extends HostileEntity implements IAnimatable {
+public class HampterEntity extends PathAwareEntity implements IAnimatable {
     private AnimationFactory factory = new AnimationFactory(this);
 
     int shinyChance = this.random.nextBetween(1, 4000);
 
-    public HampterEntity(EntityType<? extends HostileEntity> entityType, World world) {
+    public HampterEntity(EntityType<? extends PathAwareEntity> entityType, World world) {
         super(entityType, world);
     }
 
