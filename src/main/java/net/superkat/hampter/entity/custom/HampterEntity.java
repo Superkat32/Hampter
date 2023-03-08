@@ -41,7 +41,8 @@ public class HampterEntity extends PathAwareEntity implements IAnimatable {
                 .add(EntityAttributes.GENERIC_MAX_HEALTH, 20.0D)
                 .add(EntityAttributes.GENERIC_ATTACK_DAMAGE, 3.0f)
                 .add(EntityAttributes.GENERIC_ATTACK_SPEED, 10.0f)
-                .add(EntityAttributes.GENERIC_MOVEMENT_SPEED, 0.6f);
+                .add(EntityAttributes.GENERIC_MOVEMENT_SPEED, 0.6f)
+                .add(EntityAttributes.GENERIC_FOLLOW_RANGE, 10.0f);
     }
 
     @Override
@@ -49,8 +50,9 @@ public class HampterEntity extends PathAwareEntity implements IAnimatable {
         //Movement
         this.goalSelector.add(1, new SwimGoal(this));
         this.goalSelector.add(2, new BreatheAirGoal(this));
-        this.goalSelector.add(2, new MeleeAttackGoal(this, 1.2D, false));
-        this.goalSelector.add(3, new RevengeGoal(this));
+        this.goalSelector.add(3, new MeleeAttackGoal(this, 1.2D, false));
+        this.goalSelector.add(1, new PounceAtTargetGoal(this, 0.75f));
+        this.goalSelector.add(4, new RevengeGoal(this));
         this.goalSelector.add(3, new WanderAroundFarGoal(this, 0.75f, 1));
         this.goalSelector.add(3, new LookAtEntityGoal(this, PlayerEntity.class, 6.0F));
         this.goalSelector.add(4, new LookAroundGoal(this));
