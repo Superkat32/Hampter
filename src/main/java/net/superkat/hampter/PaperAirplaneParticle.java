@@ -12,6 +12,8 @@ public class PaperAirplaneParticle extends SpriteBillboardParticle {
 
     int totalDelay = this.random.nextBetween(1, 20);
     int delay = this.random.nextBetween(1, 10);
+    int gravityDelay = this.random.nextBetween(1, 40);
+    boolean gravityUp = true;
 
     PaperAirplaneParticle(ClientWorld world, double x, double y, double z, double velocityX, double velocityY, double velocityZ, SpriteProvider spriteProvider) {
         super(world, x, y, z);
@@ -20,7 +22,7 @@ public class PaperAirplaneParticle extends SpriteBillboardParticle {
         this.scale = 0.20F + this.random.nextFloat() / 12;
         this.velocityX = velocityX + this.random.nextFloat() / 8;
 //        this.velocityY = velocityY - 0.03 - this.random.nextFloat() / 16;
-        this.velocityY = 0;
+        this.velocityY = 0.05F;
         this.velocityZ = velocityZ + this.random.nextFloat() / 8;
         this.x = x + this.random.nextFloat();
         this.y = y + this.random.nextFloat();
@@ -36,6 +38,16 @@ public class PaperAirplaneParticle extends SpriteBillboardParticle {
         if (this.age++ >= this.maxAge || this.scale <= 0) {
             this.markDead();
         } else {
+            if(this.age >= gravityDelay && gravityUp) {
+                this.velocityY = this.random.nextBetweenExclusive(1, 10) * 0.007;
+                gravityDelay = gravityDelay + this.random.nextBetween(1, 40);
+                gravityUp = false;
+            }
+            if(this.age >= gravityDelay && !gravityUp) {
+                this.velocityY = this.random.nextBetweenExclusive(1, 10) * -0.007;
+                gravityDelay = gravityDelay + this.random.nextBetween(1, 40);
+                gravityUp = true;
+            }
             if(this.age == totalDelay) {
                 totalDelay += delay;
                 this.changeVel();
