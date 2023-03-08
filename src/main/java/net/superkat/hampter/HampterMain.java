@@ -8,6 +8,7 @@ import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
 import net.superkat.hampter.entity.ModEntities;
 import net.superkat.hampter.entity.custom.HampterEntity;
+import net.superkat.hampter.world.gen.ModWorldGen;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import software.bernie.geckolib3.GeckoLib;
@@ -24,6 +25,9 @@ public class HampterMain implements ModInitializer {
 		GeckoLib.initialize();
 
 		FabricDefaultAttributeRegistry.register(ModEntities.HAMPTER, HampterEntity.setAttributes());
+
+        //WorldGen
+        ModWorldGen.generateWorldGen();
 
 		//Particle
 		Registry.register(Registry.PARTICLE_TYPE, new Identifier(MOD_ID, "paper_airplane"), PAPER_AIRPLANE);
