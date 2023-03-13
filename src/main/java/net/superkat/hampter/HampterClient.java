@@ -15,6 +15,6 @@ public class HampterClient implements ClientModInitializer {
         //Particle
         ParticleFactoryRegistry.getInstance().register(HampterMain.PAPER_AIRPLANE, PaperAirplaneParticle.Factory::new);
 
-        HampterMain.LOGGER.info("HampterClient ready!");
+//        HampterMain.LOGGER.info("HampterClient ready!");
     }
 }

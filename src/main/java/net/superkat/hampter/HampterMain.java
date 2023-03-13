@@ -40,6 +40,6 @@ public class HampterMain implements ModInitializer {
 		//Particle
 		Registry.register(Registry.PARTICLE_TYPE, new Identifier(MOD_ID, "paper_airplane"), PAPER_AIRPLANE);
 
-		LOGGER.info("Hello, Fabric world!");
+//		LOGGER.info("Hello, Fabric world!");
 	}
 }
