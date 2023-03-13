@@ -21,8 +21,7 @@ public class HampterMain implements ModInitializer {
 	public static final String MOD_ID = "hampter";
 	public static final Logger LOGGER = LoggerFactory.getLogger(MOD_ID);
 	public static final DefaultParticleType PAPER_AIRPLANE = FabricParticleTypes.simple();
-	public static final Item HAMPTER_SPAWN_EGG = new SpawnEggItem(ModEntities.HAMPTER, 0x725b4a, 0x48372c, new FabricItemSettings().group(ItemGroup.MISC));
-//	public static final Item HAMPTER_SPAWN_EGG = new SpawnEggItem(ModEntities.HAMPTER, 0x725b4a, 0xa89d88, new FabricItemSettings().group(ItemGroup.MISC));
+	public static final Item HAMPTER_SPAWN_EGG = new SpawnEggItem(ModEntities.HAMPTER, 0xffffff, 0xffffff, new FabricItemSettings().group(ItemGroup.MISC));
 
 	@Override
 	public void onInitialize() {
