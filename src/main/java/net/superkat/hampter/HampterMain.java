@@ -21,6 +21,7 @@ public class HampterMain implements ModInitializer {
 	public static final String MOD_ID = "hampter";
 	public static final Logger LOGGER = LoggerFactory.getLogger(MOD_ID);
 	public static final DefaultParticleType PAPER_AIRPLANE = FabricParticleTypes.simple();
+//	The 0x is required before the HEX color code. The HEX color code is set to white to make the actual image texture I've created look correct
 	public static final Item HAMPTER_SPAWN_EGG = new SpawnEggItem(ModEntities.HAMPTER, 0xffffff, 0xffffff, new FabricItemSettings().group(ItemGroup.MISC));
 
 	@Override
