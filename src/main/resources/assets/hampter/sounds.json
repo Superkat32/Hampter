@@ -1,0 +1,20 @@
+{
+  "ambient": {
+    "subtitle": "subtitles.hampter.ambient",
+    "sounds": [
+      "hampter:ambient"
+    ]
+  },
+  "hurt": {
+    "subtitle": "subtitles.hampter.hurt",
+    "sounds": [
+      "hampter:hurt"
+    ]
+  },
+  "death": {
+    "subtitle": "subtitles.hampter.death",
+    "sounds": [
+      "hampter:death"
+    ]
+  }
+}

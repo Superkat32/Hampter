@@ -8,6 +8,7 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.SpawnEggItem;
 import net.minecraft.particle.DefaultParticleType;
+import net.minecraft.sound.SoundEvent;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
 import net.superkat.hampter.entity.ModEntities;
@@ -24,6 +25,13 @@ public class HampterMain implements ModInitializer {
 //	The 0x is required before the HEX color code. The HEX color code is set to white to make the actual image texture I've created look correct
 	public static final Item HAMPTER_SPAWN_EGG = new SpawnEggItem(ModEntities.HAMPTER, 0xffffff, 0xffffff, new FabricItemSettings().group(ItemGroup.MISC));
 
+	public static final Identifier AMBIENT_SOUND_ID = new Identifier("hampter:ambient");
+	public static SoundEvent AMBIENT_SOUND_EVENT = new SoundEvent(AMBIENT_SOUND_ID);
+	public static final Identifier HURT_SOUND_ID = new Identifier("hampter:hurt");
+	public static SoundEvent HURT_SOUND_EVENT = new SoundEvent(HURT_SOUND_ID);
+	public static final Identifier DEATH_SOUND_ID = new Identifier("hampter:death");
+	public static SoundEvent DEATH_SOUND_EVENT = new SoundEvent(DEATH_SOUND_ID);
+
 	@Override
 	public void onInitialize() {
 
@@ -37,6 +45,11 @@ public class HampterMain implements ModInitializer {
 
 		//Spawn egg item
 		Registry.register(Registry.ITEM, new Identifier(MOD_ID, "hampter_spawn_egg"), HAMPTER_SPAWN_EGG);
+
+		//Sounds
+		Registry.register(Registry.SOUND_EVENT, HampterMain.AMBIENT_SOUND_ID, AMBIENT_SOUND_EVENT);
+		Registry.register(Registry.SOUND_EVENT, HampterMain.HURT_SOUND_ID, HURT_SOUND_EVENT);
+		Registry.register(Registry.SOUND_EVENT, HampterMain.DEATH_SOUND_ID, DEATH_SOUND_EVENT);
 
 		//Particle
 		Registry.register(Registry.PARTICLE_TYPE, new Identifier(MOD_ID, "paper_airplane"), PAPER_AIRPLANE);

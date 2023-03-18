@@ -126,17 +126,17 @@ public class HampterEntity extends PathAwareEntity implements IAnimatable {
 
     @Override
     protected SoundEvent getAmbientSound() {
-        return SoundEvents.ENTITY_AXOLOTL_IDLE_AIR;
+        return HampterMain.AMBIENT_SOUND_EVENT;
     }
 
     @Override
     protected SoundEvent getHurtSound(DamageSource source) {
-        return SoundEvents.ENTITY_ENDER_DRAGON_GROWL;
+        return HampterMain.HURT_SOUND_EVENT;
     }
 
     @Override
     protected SoundEvent getDeathSound() {
-        return SoundEvents.ENTITY_ALLAY_DEATH;
+        return HampterMain.DEATH_SOUND_EVENT;
     }
 
     @Override
