@@ -1,5 +1,7 @@
 {
   "item.hampter.hampter_spawn_egg": "Hampter Spawn Egg",
   "entity.hampter.hampter": "Hampter",
-  "subtitles.hampter.ambient": "Hampter Does A Hampter"
+  "subtitles.hampter.ambient": "Hampter Does A Hampter",
+  "subtitles.hampter.hurt": "Hampter Gets Hurt",
+  "subtitles.hampter.death": "RIP Hampter"
 }
